@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Darak Gifting Co. — Gifting, elevated to an art</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#E1197A;          /* logo pink */
+  --pink-dark:#8F0B4C;     /* dark pinkish */
+  --pink-deep:#5C0730;     /* deepest, for dark sections */
+  --pink-tint:#FDF1F7;     /* whisper of pink on white */
+  --white:#FFFFFF;
+  --ink:#3A0A22;
+  --muted:#7A2F54;
+  --serif:'Bodoni Moda', serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--serif);background:var(--white);color:var(--ink);line-height:1.75;font-weight:470;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--pink);color:#fff}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 6vw}
+.eyebrow{font-size:.8rem;letter-spacing:.42em;text-transform:uppercase;font-weight:600;color:var(--pink)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08}
+.btn{display:inline-block;font-family:var(--serif);font-size:.82rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;padding:1.1rem 2.6rem;border:1px solid var(--pink);color:var(--pink);background:transparent;transition:background .35s,color .35s;cursor:pointer}
+.btn:hover{background:var(--pink);color:#fff}
+.btn.solid{background:var(--pink);color:#fff;border-color:var(--pink)}
+.btn.solid:hover{background:#fff;color:var(--pink)}
+.btn.light{border-color:#fff;color:#fff}
+.btn.light:hover{background:#fff;color:var(--pink-dark)}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+
+/* ribbon signature */
+.ribbon{position:fixed;top:0;left:50%;width:2px;height:100%;background:linear-gradient(to bottom,transparent,rgba(225,25,122,.14) 12%,rgba(225,25,122,.14) 88%,transparent);pointer-events:none;z-index:1}
+@media(max-width:820px){.ribbon{display:none}}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:1.4rem 6vw;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s}
+nav.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(225,25,122,.15)}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.35rem;color:var(--pink);letter-spacing:.01em}
+nav.on-dark:not(.scrolled) .logo{color:#fff}
+.navlinks{display:flex;gap:2.6rem;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+.navlinks a{position:relative;padding:.2rem 0;color:var(--ink)}
+nav.on-dark:not(.scrolled) .navlinks a{color:#fff}
+.navlinks a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:1px;background:currentColor;transition:width .3s}
+.navlinks a:hover::after{width:100%}
+@media(max-width:820px){.navlinks{display:none}}
+
+/* hero */
+.hero{min-height:100vh;background:linear-gradient(160deg,var(--pink-dark),var(--pink-deep));color:#fff;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:70vw;height:70vw;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 65%);top:-25vw;right:-20vw}
+.hero::after{content:"";position:absolute;width:55vw;height:55vw;border-radius:50%;background:radial-gradient(circle,rgba(225,25,122,.45),transparent 65%);bottom:-28vw;left:-15vw}
+.hero .wrap{position:relative;z-index:2;padding-top:8rem;padding-bottom:6rem;text-align:center;width:100%}
+.hero .eyebrow{color:#FFFFFF;font-weight:700}
+.hero h1{font-size:clamp(3rem,7.6vw,6.6rem);margin:1.6rem auto 0;max-width:16ch;font-weight:700}
+.hero h1 em{font-style:italic;font-weight:500;color:#FFD7EA}
+.hero p.lead{max-width:52ch;margin:2rem auto 0;color:#FFFFFF;font-size:1.18rem;font-weight:540}
+.hero .cta-row{margin-top:3rem;display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap}
+.bow{width:70px;margin:0 auto;display:block}
+.hero .stats{margin-top:5rem;display:flex;justify-content:center;gap:4.5rem;flex-wrap:wrap}
+.hero .stat b{display:block;font-family:var(--serif);font-size:2.1rem;font-weight:700;color:#fff}
+.hero .stat span{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:#FFFFFF;font-weight:600}
+
+.rise{opacity:0;transform:translateY(26px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.rise.d1{animation-delay:.15s}.rise.d2{animation-delay:.3s}.rise.d3{animation-delay:.45s}.rise.d4{animation-delay:.6s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+section{position:relative;z-index:2}
+.section-head{text-align:center;max-width:640px;margin:0 auto 4.5rem}
+.section-head h2{font-size:clamp(2.1rem,4.6vw,3.6rem);margin-top:1.2rem;color:var(--pink-dark)}
+.section-head p{margin-top:1.2rem;color:var(--muted)}
+
+/* collections */
+.collections{padding:8rem 0 7rem;background:var(--white)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+@media(max-width:1020px){.grid4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid4{grid-template-columns:1fr}}
+.card{background:var(--pink-tint);border:1px solid rgba(225,25,122,.14);padding:3.2rem 2rem 2.8rem;position:relative;transition:transform .4s,box-shadow .4s,background .4s;display:flex;flex-direction:column;text-align:center}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--pink);transform:scaleX(0);transform-origin:center;transition:transform .45s}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -30px rgba(158,12,85,.4);background:#fff}
+.card:hover::before{transform:scaleX(1)}
+.card .glyph{font-size:2.1rem;line-height:1}
+.card h3{font-size:1.55rem;margin:1.4rem 0 .9rem;color:var(--pink-dark)}
+.card p{font-size:.98rem;color:var(--ink);flex:1}
+
+/* heritage */
+.heritage{background:var(--pink-deep);color:#fff;padding:8rem 0;overflow:hidden;position:relative}
+.heritage::before{content:"25";position:absolute;font-family:var(--serif);font-weight:800;font-size:clamp(18rem,40vw,34rem);color:rgba(255,255,255,.06);right:-4vw;top:50%;transform:translateY(-50%);line-height:1;pointer-events:none}
+.heritage .wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative}
+@media(max-width:900px){.heritage .wrap{grid-template-columns:1fr;gap:3rem}}
+.heritage .eyebrow{color:#FFC9E4;font-weight:700}
+.heritage h2{font-size:clamp(2.2rem,4.6vw,3.6rem);margin-top:1.2rem}
+.heritage h2 em{font-style:italic;font-weight:500;color:#FFD7EA}
+.heritage p{color:#FFFFFF;margin-top:1.4rem;font-size:1.06rem;font-weight:540}
+.heritage .marks{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.mark{border:1px solid rgba(255,255,255,.25);padding:2.2rem 1.8rem}
+.mark b{display:block;font-family:var(--serif);font-size:2.4rem;font-weight:700;color:#fff}
+.mark span{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:#FFFFFF;font-weight:600}
+
+/* process */
+.process{padding:7.5rem 0;background:var(--pink-tint)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;text-align:center}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.step .dot{width:56px;height:56px;border:1px solid var(--pink);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.4rem;font-family:var(--serif);font-size:1.15rem;color:var(--pink);font-weight:600}
+.step h3{font-size:1.35rem;color:var(--pink-dark)}
+.step p{font-size:.96rem;color:var(--ink);margin-top:.7rem;max-width:30ch;margin-left:auto;margin-right:auto}
+
+/* testimonials */
+.voices{background:var(--white);padding:8rem 0}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+@media(max-width:900px){.tgrid{grid-template-columns:1fr}}
+.voice{background:var(--pink-tint);border:1px solid rgba(225,25,122,.12);padding:2.8rem 2.2rem;position:relative}
+.voice::before{content:"\201C";font-family:var(--serif);font-size:4.5rem;color:var(--pink);line-height:.6;display:block;margin-bottom:1.2rem}
+.voice p{font-size:.97rem;color:var(--ink)}
+.voice .who{margin-top:1.8rem;display:flex;align-items:center;justify-content:space-between}
+.voice .who b{font-family:var(--serif);font-weight:700;font-size:1.08rem;color:var(--pink-dark)}
+.stars{color:var(--pink);letter-spacing:.15em;font-size:.85rem}
+
+/* cta */
+.cta{background:linear-gradient(135deg,var(--pink-deep),var(--pink-dark) 55%,var(--pink));color:#fff;padding:7.5rem 0;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.4);pointer-events:none}
+.cta h2{font-size:clamp(2.2rem,5vw,4rem);max-width:20ch;margin:1.4rem auto 0;font-weight:700}
+.cta .eyebrow{color:#FFFFFF;font-weight:700}
+.cta p{margin:1.4rem auto 0;max-width:46ch;color:#FFFFFF;font-size:1.08rem;font-weight:540}
+.cta .btn{margin-top:2.6rem}
+
+/* footer */
+footer{background:var(--pink-deep);color:#FFFFFF;padding:4.5rem 0 2.5rem}
+footer .cols{display:flex;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+footer .brand{font-family:var(--serif);font-weight:800;font-size:1.55rem;color:#fff}
+footer .brand + p{max-width:32ch;font-size:.96rem;margin-top:.9rem;font-weight:500}
+footer h4{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:#FFC9E4;font-weight:700;margin-bottom:1rem}
+footer li{list-style:none;font-size:.98rem;margin-bottom:.6rem;font-weight:500}
+footer a:hover{color:#fff}
+footer .base{margin-top:3.5rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.86rem;font-weight:500;letter-spacing:.08em}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  .rise,.reveal{opacity:1;transform:none;animation:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon" aria-hidden="true"></div>
+
+<nav id="nav" class="on-dark">
+  <a class="logo" href="#top">Darak Gifting Co.</a>
+  <div class="navlinks">
+    <a href="#collections">Collections</a>
+    <a href="#heritage">Our story</a>
+    <a href="#process">Bespoke</a>
+    <a href="#voices">Clients</a>
+    <a href="#contact">Enquire</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <svg class="bow rise" viewBox="0 0 80 44" fill="none" aria-hidden="true">
+      <path d="M40 22C28 6 8 6 6 18c-1.6 9 12 14 34 4z" stroke="#FFD7EA" stroke-width="1.4"/>
+      <path d="M40 22c12-16 32-16 34-4 1.6 9-12 14-34 4z" stroke="#FFD7EA" stroke-width="1.4"/>
+      <circle cx="40" cy="22" r="4.5" stroke="#FFFFFF" stroke-width="1.4"/>
+      <path d="M37 26 30 42M43 26l7 16" stroke="#FFD7EA" stroke-width="1.4"/>
+    </svg>
+    <p class="eyebrow rise d1" style="margin-top:1.8rem">Premium &amp; Corporate Gifting · Est. in Bhilwara</p>
+    <h1 class="rise d2">Gifting, elevated<br>to an <em>art</em>.</h1>
+    <p class="lead rise d3">For over 25 years, Darak Gifting Co. has wrapped feelings, not just boxes — bespoke hampers, corporate kits and celebration gifts, curated and presented with couture-level care.</p>
+    <div class="cta-row rise d4">
+      <a class="btn light" href="#collections">Explore collections</a>
+      <a class="btn light" href="#contact">Start a bespoke order</a>
+    </div>
+    <div class="stats rise d4">
+      <div class="stat"><b>25+</b><span>Years of legacy</span></div>
+      <div class="stat"><b>10,000+</b><span>Gifts delivered</span></div>
+      <div class="stat"><b>Same-day</b><span>Local delivery</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- COLLECTIONS -->
+<section class="collections" id="collections">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The Collections</p>
+      <h2>Curated for every moment that matters</h2>
+      <p>Four signature lines — each personalised, branded and finished by hand.</p>
+    </div>
+    <div class="grid4">
+      <article class="card reveal">
+        <div class="glyph">🎁</div>
+        <h3>Onboarding kits</h3>
+        <p>Make every new hire feel valued from day one with branded, personalised welcome boxes.</p>
+      </article>
+      <article class="card reveal">
+        <div class="glyph">🏆</div>
+        <h3>Recognition awards</h3>
+        <p>Milestone celebrations, performance awards, and tenure gifts that genuinely impress.</p>
+      </article>
+      <article class="card reveal">
+        <div class="glyph">🤝</div>
+        <h3>Client gifting</h3>
+        <p>Premium gifts for clients, prospects, and partners — timed to moments that matter.</p>
+      </article>
+      <article class="card reveal">
+        <div class="glyph">🪔</div>
+        <h3>Festive collections</h3>
+        <p>Diwali, Holi, Eid, Christmas — bespoke festive hampers with your brand, beautifully presented.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HERITAGE -->
+<section class="heritage" id="heritage">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Our Story</p>
+      <h2>We don't just sell products.<br>We craft <em>memories</em>.</h2>
+      <p>For over 25 years, we have been Bhilwara's trusted destination for premium gifting. What started as a small passion has grown into a legacy.</p>
+      <p>We believe a gift is a feeling — which is why every package is wrapped with personal care, every ribbon tied by hand, and every delivery treated like our own celebration.</p>
+    </div>
+    <div class="marks reveal">
+      <div class="mark"><b>25+</b><span>Years in gifting</span></div>
+      <div class="mark"><b>1000s</b><span>Happy customers</span></div>
+      <div class="mark"><b>★ 5.0</b><span>Customer rating</span></div>
+      <div class="mark"><b>#1</b><span>Trusted in Bhilwara</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The Bespoke Journey</p>
+      <h2>From your brief to their hands</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="dot">I</div>
+        <h3>Consult</h3>
+        <p>Share your occasion, budget and brand — we curate concepts within a day.</p>
+      </div>
+      <div class="step reveal">
+        <div class="dot">II</div>
+        <h3>Craft</h3>
+        <p>Personalisation, branding and hand-finished wrapping, done in-house.</p>
+      </div>
+      <div class="step reveal">
+        <div class="dot">III</div>
+        <h3>Deliver</h3>
+        <p>Same-day delivery across Bhilwara, pan-India dispatch for corporate orders.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="voices" id="voices">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Kind Words</p>
+      <h2>Loved by thousands of gifters</h2>
+    </div>
+    <div class="tgrid">
+      <article class="voice reveal">
+        <p>Amazing — in very little time they personalised my gift and home-delivered it to my friend. They made same-day gifting in Bhilwara effortless. Appreciable efforts, thank you so much!</p>
+        <div class="who"><b>Priya Jain</b><span class="stars">★★★★★</span></div>
+      </article>
+      <article class="voice reveal">
+        <p>Have never returned empty-handed! A one-stop shop for any gift, any day, any occasion. Even went just to get things packed for my wedding — they were amazing. Must visit.</p>
+        <div class="who"><b>Kunal Kabra</b><span class="stars">★★★★★</span></div>
+      </article>
+      <article class="voice reveal">
+        <p>Excellent service and the best prices in Bhilwara. Every order has been thoughtful, beautifully wrapped and always on time.</p>
+        <div class="who"><b>Rajan Jain</b><span class="stars">★★★★★</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="wrap reveal">
+    <p class="eyebrow">Begin Your Order</p>
+    <h2>Let's make your next gift unforgettable</h2>
+    <p>Corporate kits, festive hampers or one perfect present — tell us the occasion and we'll take it from there.</p>
+    <a class="btn light" href="tel:+910000000000">Enquire now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand">Darak Gifting Co.</div>
+        <p>Bhilwara's home of premium, personalised gifting — for people, teams and the moments in between.</p>
+      </div>
+      <div>
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="#collections">Onboarding kits</a></li>
+          <li><a href="#collections">Recognition awards</a></li>
+          <li><a href="#collections">Client gifting</a></li>
+          <li><a href="#collections">Festive hampers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit us</h4>
+        <ul>
+          <li>Bhilwara, Rajasthan</li>
+          <li>Open all days · 10am – 9pm</li>
+          <li><a href="tel:+910000000000">+91 00000 00000</a></li>
+          <li><a href="mailto:hello@darakgifting.co">hello@darakgifting.co</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>© 2026 Darak Gifting Co. All rights reserved.</span>
+      <span>Wrapped with love in Bhilwara 🎀</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>40)},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
